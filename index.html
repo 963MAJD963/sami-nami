@@ -5,49 +5,52 @@
   <title>سامي نامي</title>
   <style>
     body{
-        background:linear-gradient(blue 20% , aqua 70%);
+        background-color: white;
         background-repeat:no-repeat
     }
     h1 { text-align: center; }
     img {
       width: 300px;
       height: 300px;
-      display: block;
+      display: flexbox;
+      border-radius: 20px;
+      align-items: center;
+      margin-left: 125px ;
     }
     button {
       border-radius: 25px;
       position: absolute;
-      left: 50%;
+      margin: 150px;
       cursor: pointer;
-    }
-    button:active {
-      animation: bounce 0.5s ease;
-    }
-    @keyframes bounce {
-      0%   { transform: translateY(0); }
-      50%  { transform: translateY(-20px); }
-      100% { transform: translateY(0); }
+      font-size: 24px;
     }
     /* الأنيميشن يشتغل على الـ div بس عند الضغط */
-    button:active + div {
+    button:focus + div {
       animation: stick 2s ease;
+      animation-iteration-count: 100;
+      
     }
     div {
       width: 10px;
       height: 100px;
-      background-color:aqua;
+      bottom:50px ;
+      font-size: 72px;
+      padding: 0 ;
+      margin: 0 ;
+      margin-left: 250px;
     }
     @keyframes stick {
-      0%   { transform: translate(0px, 150px);background-color: black; }
-      50%  { transform: translate(150px, 150px);background-color: black; }
-      100% { transform: translate(150px, 0px); background-color: black; }
+      0%  {transform: translate(0px, -20px);}
+      50% { transform: translate(0px, 20px);  }
+      100%  {transform: translate(0px, -20px);}
+
     }
   </style>
 </head>
 <body>
   <h1>ابعص كاهن مابكو</h1>
   <img src="normal.jpeg">
-  <button>اضغط بالاصبع الاوسط</button>
-  <div></div>
+  <button onclick="alert('سامي يقول : ايدك عن طيزي')">اضغط بالاصبع الاوسط</button>
+  <div> 🖕 </div>
 </body>
 </html>
