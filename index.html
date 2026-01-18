@@ -4,53 +4,66 @@
   <meta charset="UTF-8">
   <title>سامي نامي</title>
   <style>
-    body{
-        background-color: white;
-        background-repeat:no-repeat
+    body {
+      background-color: black;
+      font-family: Arial, sans-serif;
+      text-align: center; /* كل العناصر بالنص */
     }
-    h1 { text-align: center; }
+
+    h1 {
+      color: grey;
+    }
+
     img {
+      display: block;
+      margin: 20px auto;
       width: 300px;
       height: 300px;
-      display: flexbox;
       border-radius: 20px;
-      align-items: center;
-      margin-left: 125px ;
+      position: relative;
+      z-index: 1; /* الصورة فوق */
     }
+
     button {
+      display: block;
+      margin: 20px auto;
+      margin-top: 20px;
       border-radius: 25px;
-      position: absolute;
-      margin: 150px;
       cursor: pointer;
       font-size: 24px;
+      width: 190px;
+      padding: 10px;
+      position: relative;
+      z-index: 2; /* الزر فوق الصورة */
     }
-    /* الأنيميشن يشتغل على الـ div بس عند الضغط */
-    button:focus + div {
-      animation: stick 2s ease;
-      animation-iteration-count: 100;
-      
-    }
-    div {
-      width: 10px;
-      height: 100px;
-      bottom:50px ;
-      font-size: 72px;
-      padding: 0 ;
-      margin: 0 ;
-      margin-left: 250px;
-    }
-    @keyframes stick {
-      0%  {transform: translate(0px, -20px);}
-      50% { transform: translate(0px, 20px);  }
-      100%  {transform: translate(0px, -20px);}
 
+    .finger {
+      font-size: 90px;
+      margin-top: -180px; /* يخلي الإصبع فوق الزر */
+      position: relative;
+      z-index: 0; /* تحت الزر */
+    }
+
+    /* الأنيميشن يشتغل لما الزر ينضغط */
+    button:focus + .finger,
+    button:active + .finger {
+      animation: stick 2s ease infinite;
+    }
+
+    @keyframes stick {
+      0%   { transform: translateY(-40px); }
+      50%  { transform: translateY(40px); }
+      100% { transform: translateY(-40px); }
     }
   </style>
 </head>
 <body>
   <h1>ابعص كاهن مابكو</h1>
-  <img src="normal.jpeg">
-  <button onclick="alert('سامي يقول : ايدك عن طيزي')">اضغط بالاصبع الاوسط</button>
-  <div> 🖕 </div>
+  <img src="normal.jpeg" alt="صورة تجريبية">
+
+  <!-- الزر تحت الصورة -->
+  <button>اضغط بالاصبع الاوسط</button>
+  <!-- الإصبع يجي مباشرة بعد الزر -->
+  <div class="finger">🖕🏾</div>
 </body>
 </html>
