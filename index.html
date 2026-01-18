@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>سامي نامي</title>
+  <style>
+    body{
+        background:linear-gradient(blue 20% , aqua 70%);
+        background-repeat:no-repeat
+    }
+    h1 { text-align: center; }
+    img {
+      width: 300px;
+      height: 300px;
+      display: block;
+    }
+    button {
+      border-radius: 25px;
+      position: absolute;
+      left: 50%;
+      cursor: pointer;
+    }
+    button:active {
+      animation: bounce 0.5s ease;
+    }
+    @keyframes bounce {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+    /* الأنيميشن يشتغل على الـ div بس عند الضغط */
+    button:active + div {
+      animation: stick 2s ease;
+    }
+    div {
+      width: 10px;
+      height: 100px;
+      background-color:aqua;
+    }
+    @keyframes stick {
+      0%   { transform: translate(0px, 150px);background-color: black; }
+      50%  { transform: translate(150px, 150px);background-color: black; }
+      100% { transform: translate(150px, 0px); background-color: black; }
+    }
+  </style>
+</head>
+<body>
+  <h1>ابعص كاهن مابكو</h1>
+  <img src="normal.jpeg">
+  <button>اضغط بالاصبع الاوسط</button>
+  <div></div>
+</body>
+</html>
